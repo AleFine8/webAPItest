@@ -1,4 +1,4 @@
-package model;
+package com.cospes.webAPItest.model;
 
 import jakarta.persistence.*;
 
