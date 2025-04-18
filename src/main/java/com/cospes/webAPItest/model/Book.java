@@ -13,13 +13,20 @@ public class Book {
 
     public Book(){}
 
-    public Book (String titolo, String autore){
+    public Book (String titolo, String autore, Long id){
 
         this.setTitolo(titolo);
         this.setAutore(autore);
-
+        this.setId(id);
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitolo() {
         return titolo;

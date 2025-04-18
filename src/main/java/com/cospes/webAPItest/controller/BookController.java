@@ -22,10 +22,23 @@ public class BookController {
     public Book create(@RequestBody Book book){
         return bookRepository.save(book);
     }
-    @GetMapping ("/id")
+    @GetMapping ("{id}")
     public Book getById(@PathVariable long id){
         return bookRepository.findById(id).orElse(null);
     }
 
+    @PutMapping ("/{id}")
+    public Book update (@PathVariable Long id, @RequestBody Book updatedBook){
+        return bookRepository.findById(id).map(book  ->{
+            book.setTitolo(updatedBook.getTitolo());
+            book.setAutore(updatedBook.getAutore());
+            return bookRepository.save(book);
+        }).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        bookRepository.deleteById(id);
+    }
 
 }
